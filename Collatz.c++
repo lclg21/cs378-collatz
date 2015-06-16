@@ -35,9 +35,8 @@ pair<int, int> collatz_read (const string& s) {
 
 int collatz_eval (int i, int j) {
     int max = 0;
-    int cache = 0;
-    if ( i <= j){
-        assert(i <= j);
+    if ( i < j){
+        assert(i < j);
         while (i < j + 1){
             assert(i < j+1);
             int n = i;
@@ -49,7 +48,7 @@ int collatz_eval (int i, int j) {
                 }   
                 else{
                     n = (3 * n) + 1;
-                }
+		}
                 ++cycleLength;
             }
             if (max < cycleLength){
@@ -80,6 +79,19 @@ int collatz_eval (int i, int j) {
             }
             ++j;
         }
+    }
+
+    else {
+      int n = i;
+      int c = 1;
+      while ( n > 1){
+	if ((n % 2) == 0){
+	  n = (n / 2);}
+        else{
+	  n = (3 * n) + 1;}
+        ++c;
+      }
+      max = c;
     }
 
     return max;}
