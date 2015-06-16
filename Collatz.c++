@@ -13,7 +13,7 @@
 #include <sstream>  // istringstream
 #include <string>   // getline, string
 #include <utility>  // make_pair, pair
-
+#include <map>      //map<int, int>
 #include "Collatz.h"
 
 using namespace std;
@@ -33,68 +33,110 @@ pair<int, int> collatz_read (const string& s) {
 // collatz_eval
 // ------------
 
+//initializes my map (cache)
+std::map<int, int> cache;
 int collatz_eval (int i, int j) {
-    int max = 0;
-    if ( i < j){
-        assert(i < j);
-        while (i < j + 1){
-            assert(i < j+1);
-            int n = i;
-            int cycleLength = 1;
-            assert(n > 0);
-            while (n > 1){
-                if ( n % 2 == 0){
-                    n = n / 2;
-                }   
-                else{
-                    n = (3 * n) + 1;
-		}
-                ++cycleLength;
-            }
-            if (max < cycleLength){
-                max = cycleLength;
-            }
-            ++i;
-        }
-    }
-
-    if ( i > j){
-        assert(i > j);
-        while (j < i + 1){
-            assert (j < i+1);
-            int n = j;
-            int cycleLength = 1;
-            while (n > 1){
-                assert (n > 1);
-                if ( n % 2 == 0){
-                    n = n / 2;
-                }   
-                else{
-                    n = (3 * n) + 1;
-                }
-                ++cycleLength;
-            }
-            if (max < cycleLength){
-                max = cycleLength;
-            }
-            ++j;
-        }
-    }
-
-    else {
+  int max = 0;
+  //Checks to see if the range is in increasing order.
+  if ( i < j){
+    assert(i < j);
+    //Loops through the range and find each element's length cycle.
+    while (i < j + 1){
+      assert(i < j+1);
       int n = i;
-      int c = 1;
-      while ( n > 1){
+      int cycleLength = 1;
+      assert(n > 0);
+      while (n > 1){
+	//checks if element n is in the cache
+	if (cache.count(n) == 0){
+	  assert(cache.count(n) == 0);
+	  if ( n % 2 == 0){
+	    n = n / 2;
+	    ++cycleLength;
+	  }   
+	  else{
+	    n = (3 * n) + 1;
+	    ++cycleLength;
+	  }
+	}
+	else{
+	  //checks to see if element n is the cache(map).
+	  cycleLength += ((cache.find(n) -> second)-1);
+	  break;
+	}
+      }
+      //inserts the cycle length of i in the cache(map)
+      cache[i] = cycleLength;
+      if (max < cycleLength){
+	max = cycleLength;
+	assert(max > 0);
+      }
+      ++i;
+    }
+  }
+
+  //checks to see if range is in decreasing order.
+  if ( i > j){
+    assert(i > j);
+    //Loops through the range and find each element's length cycle.
+    while (j < i + 1){
+      assert (j < i+1);
+      int n = j;
+      int cycleLength = 1;
+      while (n > 1){
+	//checks if element n is in the cache
+	if (cache.count(n) == 0){
+	  assert(cache.count(n) == 0);
+	  if ( n % 2 == 0){
+	    n = n / 2;
+	    ++cycleLength;
+	  }   
+	  else{
+	    n = (3 * n) + 1;
+	    ++cycleLength;
+	  }
+	}
+	else {
+	  cycleLength += ((cache.find(n) -> second)-1);
+	  break;
+	}
+      }
+      //inserts the cycle length of i in the cache(map)
+      cache[j] = cycleLength;
+      if (max < cycleLength){
+        max = cycleLength;
+	assert(max > 0);
+      }
+      ++j;
+    }
+  }
+
+  //checks for the cycle length when i == j.
+  else {
+    int n = i;
+    int cycleLength = 1;
+    while ( n > 1){
+      if (cache.count(n) == 0) {
 	if ((n % 2) == 0){
 	  n = (n / 2);}
-        else{
-	  n = (3 * n) + 1;}
-        ++c;
+	else{
+	  n = (3 * n) + 1;
+	}
+	++cycleLength;
       }
-      max = c;
+      else{
+	cycleLength += ((cache.find(n) -> second)-1);
+	break;
+      }
     }
+    cache[i] = cycleLength;
+    if (cycleLength > max)
+      max = cycleLength;
+    max = cycleLength;
+  }
 
-    return max;}
+  return max;}
+
 
 // -------------
 // collatz_print

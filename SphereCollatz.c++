@@ -21,7 +21,7 @@
 #include <sstream>  // istringstream
 #include <string>   // getline, string
 #include <utility>  // make_pair, pair
-
+#include <map>
 
 
 using namespace std;
@@ -55,6 +55,7 @@ pair<int, int> collatz_read (const string& s) {
 // collatz_eval
 // ------------
 
+std::map<int, int> cache;
 int collatz_eval (int i, int j) {
   int max = 0;
   if ( i < j){
@@ -65,16 +66,23 @@ int collatz_eval (int i, int j) {
       int cycleLength = 1;
       assert(n > 0);
       while (n > 1){
-	if ( n % 2 == 0){
-	  n = n / 2;
-	}   
-	else{
-	  n = (3 * n) + 1;
-	}
-	++cycleLength;
+        if (cache.count(n) == 0){
+          if ( n % 2 == 0){
+            n = n / 2;
+          }
+          else{
+            n = (3 * n) + 1;
+          }
+          ++cycleLength;
+        }
+        else{
+          cycleLength += ((cache.find(n) -> second)-1);
+          break;
+        }
       }
+      cache[i] = cycleLength;
       if (max < cycleLength){
-	max = cycleLength;
+        max = cycleLength;
       }
       ++i;
     }
@@ -87,36 +95,52 @@ int collatz_eval (int i, int j) {
       int n = j;
       int cycleLength = 1;
       while (n > 1){
-	assert (n > 1);
-	if ( n % 2 == 0){
-	  n = n / 2;
-	}   
-	else{
-	  n = (3 * n) + 1;
-	}
-	++cycleLength;
+        if (cache.count(n) == 0){
+          if ( n % 2 == 0){
+            n = n / 2;
+          }
+          else{
+            n = (3 * n) + 1;
+          }
+	  ++cycleLength;
+        }
+        else {
+          cycleLength += ((cache.find(n) -> second)-1);
+          break;
+        }
       }
+      cache[j] = cycleLength;
       if (max < cycleLength){
-	max = cycleLength;
+        max = cycleLength;
       }
       ++j;
     }
   }
-
   else {
     int n = i;
-    int c = 1;
+    int cycleLength = 1;
     while ( n > 1){
-      if ((n % 2) == 0){
-	n = (n / 2);}
+      if (cache.count(n) == 0) {
+        if ((n % 2) == 0){
+          n = (n / 2);}
+        else{
+          n = (3 * n) + 1;
+        }
+        ++cycleLength;
+      }
       else{
-	n = (3 * n) + 1;}
-      ++c;
+        cycleLength += ((cache.find(n) -> second)-1);
+        break;
+      }
     }
-    max = c;
+    cache[i] = cycleLength;
+    if (cycleLength > max)
+      max = cycleLength;
+    max = cycleLength;
   }
 
   return max;}
+
 
 // -------------
 // collatz_print
