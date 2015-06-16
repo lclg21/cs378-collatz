@@ -35,6 +35,7 @@ pair<int, int> collatz_read (const string& s) {
 
 int collatz_eval (int i, int j) {
     int max = 0;
+    int cache = 0;
     if ( i <= j){
         assert(i <= j);
         while (i < j + 1){
