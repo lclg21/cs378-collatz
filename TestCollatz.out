@@ -1,8 +1,8 @@
-==4572== Memcheck, a memory error detector
-==4572== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-==4572== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
-==4572== Command: ./TestCollatz
-==4572== 
+==4941== Memcheck, a memory error detector
+==4941== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==4941== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==4941== Command: ./TestCollatz
+==4941== 
 Running main() from gtest_main.cc
 [==========] Running 14 tests from 1 test case.
 [----------] Global test environment set-up.
@@ -16,39 +16,39 @@ Running main() from gtest_main.cc
 [ RUN      ] CollatzFixture.read_4
 [       OK ] CollatzFixture.read_4 (2 ms)
 [ RUN      ] CollatzFixture.read_5
-[       OK ] CollatzFixture.read_5 (3 ms)
+[       OK ] CollatzFixture.read_5 (2 ms)
 [ RUN      ] CollatzFixture.eval_1
-[       OK ] CollatzFixture.eval_1 (3 ms)
+[       OK ] CollatzFixture.eval_1 (4 ms)
 [ RUN      ] CollatzFixture.eval_2
 [       OK ] CollatzFixture.eval_2 (1 ms)
 [ RUN      ] CollatzFixture.eval_3
-[       OK ] CollatzFixture.eval_3 (1 ms)
+[       OK ] CollatzFixture.eval_3 (2 ms)
 [ RUN      ] CollatzFixture.eval_4
-[       OK ] CollatzFixture.eval_4 (2 ms)
+[       OK ] CollatzFixture.eval_4 (1 ms)
 [ RUN      ] CollatzFixture.eval_5
-[       OK ] CollatzFixture.eval_5 (1 ms)
+[       OK ] CollatzFixture.eval_5 (2 ms)
 [ RUN      ] CollatzFixture.print_1
 [       OK ] CollatzFixture.print_1 (6 ms)
 [ RUN      ] CollatzFixture.print_2
-[       OK ] CollatzFixture.print_2 (2 ms)
+[       OK ] CollatzFixture.print_2 (3 ms)
 [ RUN      ] CollatzFixture.print_3
 [       OK ] CollatzFixture.print_3 (2 ms)
 [ RUN      ] CollatzFixture.solve_1
-[       OK ] CollatzFixture.solve_1 (6 ms)
-[----------] 14 tests from CollatzFixture (55 ms total)
+[       OK ] CollatzFixture.solve_1 (8 ms)
+[----------] 14 tests from CollatzFixture (58 ms total)
 
 [----------] Global test environment tear-down
-[==========] 14 tests from 1 test case ran. (79 ms total)
+[==========] 14 tests from 1 test case ran. (83 ms total)
 [  PASSED  ] 14 tests.
-==4572== 
-==4572== HEAP SUMMARY:
-==4572==     in use at exit: 0 bytes in 0 blocks
-==4572==   total heap usage: 445 allocs, 445 frees, 68,473 bytes allocated
-==4572== 
-==4572== All heap blocks were freed -- no leaks are possible
-==4572== 
-==4572== For counts of detected and suppressed errors, rerun with: -v
-==4572== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4941== 
+==4941== HEAP SUMMARY:
+==4941==     in use at exit: 0 bytes in 0 blocks
+==4941==   total heap usage: 445 allocs, 445 frees, 68,473 bytes allocated
+==4941== 
+==4941== All heap blocks were freed -- no leaks are possible
+==4941== 
+==4941== For counts of detected and suppressed errors, rerun with: -v
+==4941== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 File 'Collatz.c++'
 Lines executed:100.00% of 47
 Branches executed:100.00% of 54
