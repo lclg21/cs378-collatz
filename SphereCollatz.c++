@@ -12,6 +12,7 @@
     #define NDEBUG
 #endif
 
+
 // --------
 // includes
 // --------
@@ -25,6 +26,11 @@
 
 
 using namespace std;
+
+#ifdef CACHE
+typedef std::map<int, int> Map;
+#endif
+
 
 pair<int, int> collatz_read (const string& s);
 int collatz_eval (int i, int j);
@@ -55,9 +61,11 @@ pair<int, int> collatz_read (const string& s) {
 // collatz_eval
 // ------------
 
+//initializes the cache (map);
 std::map<int, int> cache;
 int collatz_eval (int i, int j) {
   int max = 0;
+  //Checks to see if the range is in ascending order.
   if ( i < j){
     assert(i < j);
     while (i < j + 1){
@@ -66,6 +74,7 @@ int collatz_eval (int i, int j) {
       int cycleLength = 1;
       assert(n > 0);
       while (n > 1){
+	//Looks to see if the n element is in the cache (map).
         if (cache.count(n) == 0){
           if ( n % 2 == 0){
             n = n / 2;
@@ -80,6 +89,8 @@ int collatz_eval (int i, int j) {
           break;
         }
       }
+      //inputs the cyclelength of i into the cache.
+      //and checks to see if its max cycle length.
       cache[i] = cycleLength;
       if (max < cycleLength){
         max = cycleLength;
@@ -87,7 +98,7 @@ int collatz_eval (int i, int j) {
       ++i;
     }
   }
-
+  // chceks to see if the range given is in decresing order.
   if ( i > j){
     assert(i > j);
     while (j < i + 1){
@@ -116,6 +127,7 @@ int collatz_eval (int i, int j) {
       ++j;
     }
   }
+  //if the elements given in the range are the same, it execcutes this else statement.
   else {
     int n = i;
     int cycleLength = 1;
@@ -133,6 +145,7 @@ int collatz_eval (int i, int j) {
         break;
       }
     }
+    //inputs the cycle length of i into the cache.
     cache[i] = cycleLength;
     if (cycleLength > max)
       max = cycleLength;

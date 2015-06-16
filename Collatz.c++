@@ -1,4 +1,4 @@
-// ----------------------------
+B0;136;0c// ----------------------------
 // projects/collatz/Collatz.c++
 // Copyright (C) 2015
 // Glenn P. Downing
@@ -17,6 +17,13 @@
 #include "Collatz.h"
 
 using namespace std;
+
+#ifdef CACHE
+
+typedef std::map<int, int> Map;
+
+#endif
+
 
 // ------------
 // collatz_read
