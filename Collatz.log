@@ -1,0 +1,97 @@
+commit cc64578e8d66be1d31aa51b94aed45c26944a7c9
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Tue Jun 16 14:55:20 2015 -0500
+
+    added the Doxygen html file
+
+commit 5e9b89fb11ff701d3adb6bf24bbbccc86a27b37c
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Tue Jun 16 14:39:22 2015 -0500
+
+    Implemented ifdef in Collatz and Speherecollatz
+
+commit 08ccea94bd28f2fb7e3b738a7cd937fca3ab5953
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Tue Jun 16 03:39:24 2015 -0500
+
+    added a lazy cache to collatz.c++ and SphereCollatz
+
+commit 18117f367fc0dc38e9c72cf5211e997e6258d296
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Tue Jun 16 01:06:07 2015 -0500
+
+    able to compile when i and j are equal
+
+commit fe14ef91adeb8f01a65563304651d7d3a6caaacb
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Mon Jun 15 23:46:58 2015 -0500
+
+    added more unit tests and acceptance tests
+
+commit dd0c8432cfe8ef2fb7ff05b62f857dfb7af21b00
+Merge: ded75f1 426f49d
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Mon Jun 15 23:29:03 2015 -0500
+
+    fix unmerged files in testcollatz.out
+
+commit 426f49d5d125833796b854aeaa8c51c967074372
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Mon Jun 15 23:05:52 2015 -0500
+
+    created 100 lines of acceptance tests
+
+commit ded75f1482b11c6db5dec8e79688dc3ff1f04608
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Mon Jun 15 22:33:33 2015 -0500
+
+    added testcollatz.out to master
+
+commit 9362136b0db8157f63df67849303f0497e812ab3
+Merge: d63124f c2f977a
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Mon Jun 15 22:26:19 2015 -0500
+
+    modified testcollatz.out and implemented spherecollatz
+
+commit c2f977a71374cf921b9c60f73d6a2efc274ee20f
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Mon Jun 15 22:20:19 2015 -0500
+
+    implemented sphereCollatz.c++
+
+commit d63124f52b88e656a61c0caa49a58a3bfe2bf107
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Mon Jun 15 22:00:35 2015 -0500
+
+    modified TestCollatz.out
+
+commit 3dbcce046d943e736883fb1279ed92f4f9c2516d
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Mon Jun 15 19:12:54 2015 -0500
+
+    implemented simple 3n + 1 problem with assertions
+
+commit f7f9fc68ac6cd01a708866df840c5e15ac690e51
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Mon Jun 15 17:41:17 2015 -0500
+
+    added more tests to testcollatz.c++
+
+commit 6432fa0e31059ad21b9d477a284c60799e58e813
+Author: Luis Lopez <lclg21@utexas.edu>
+Date:   Mon Jun 15 17:11:10 2015 -0500
+
+    fixed the unit tests to correct values
+
+commit a01d3d986d58096b56074457276bccb9edb6e5e9
+Author: Luis Lopez <ll9338@cs.utexas.edu>
+Date:   Sat Jun 13 19:57:39 2015 -0500
+
+    first run
+
+commit 90e58012e0947eac22d20753d0545845be015bea
+Author: lclg21 <lclg21@utexas.edu>
+Date:   Sat Jun 13 18:23:31 2015 -0500
+
+    Initial commit
