@@ -59,6 +59,11 @@ TEST(CollatzFixture, read_5) {
     ASSERT_EQ(10, p.first);
     ASSERT_EQ(1, p.second);}
 
+/*TEST(CollatzFixture, read_6) {
+    string s("1 1\n");
+    const pair<int, int> p = collatz_read(s);
+    ASSERT_EQ(1, p.first);
+    ASSERT_EQ(1, p.second);}*/
 // ----
 // eval
 // ----
@@ -83,6 +88,10 @@ TEST(CollatzFixture, eval_5) {
     const int v = collatz_eval(10, 1);
     ASSERT_EQ(20, v);}
 
+/*TEST(CollatzFixture, eval_6) {
+    const int v = collatz_eval(1, 1);
+    ASSERT_EQ(1, v);}*/
+
 // -----
 // print
 // -----
@@ -101,6 +110,11 @@ TEST(CollatzFixture, print_3) {
     ostringstream w;
     collatz_print(w, 10, 1, 20);
     ASSERT_EQ("10 1 20\n", w.str());}
+
+/*TEST(CollatzFixture, print_4) {
+    ostringstream w;
+    collatz_print(w, 1, 1, 1);
+    ASSERT_EQ("1 1 1\n", w.str());}*/
 // -----
 // solve
 // -----
