@@ -1,4 +1,4 @@
-B0;136;0c// ----------------------------
+// ----------------------------
 // projects/collatz/Collatz.c++
 // Copyright (C) 2015
 // Glenn P. Downing
@@ -19,9 +19,7 @@ B0;136;0c// ----------------------------
 using namespace std;
 
 #ifdef CACHE
-
-typedef std::map<int, int> Map;
-
+   #define typedef std::map<int, int> cache;
 #endif
 
 
@@ -81,7 +79,6 @@ int collatz_eval (int i, int j) {
       ++i;
     }
   }
-
   //checks to see if range is in decreasing order.
   if ( i > j){
     assert(i > j);
